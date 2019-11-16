@@ -10,9 +10,10 @@
     <div id="content"></div>
 
     <input type='text' id='result' size='40' ></input>
-<input type='button' value='QRCODE by BarcodeScanner' onclick='scanQR()' ></input>
-<input type='button' value='JANCODE by Pic2shop' onclick='scanJAN()' ></input>
-    <script>
+    <input type='button' value='QRCODE by BarcodeScanner' onclick='scanQR()' ></input>
+    <input type='button' value='JANCODE by Pic2shop' onclick='scanJAN()' ></input>
+
+<script>
         const speech = new webkitSpeechRecognition();
         speech.lang = 'ja-JP';
 
@@ -41,15 +42,18 @@
          };
         //--------------------------------//
 
+
 function scanQR(){
     var s='zxing://scan/?ret='
     s+=encodeURIComponent(location.origin+location.pathname+'?r={CODE}')
     document.location=s
 }
+
 function scanJAN(){
-    var s='pic2shop://scan?callback=https%3A%2F%2Fscript.google.com%2Fmacros%2Fs%2FAKfycbyrnmNznM_OtdBoVMG1G156ZLdHqqUfHlRIvXGPuT03zMah-jo%2Fexec%3Fisbn%3DEAN)
+    var s='pic2shop://scan?callback='+encodeURIComponent(location.origin+location.pathname+'?r=EAN')
     document.location=s
 }
+
 window.addEventListener('DOMContentLoaded',function(){
     function getParameterByName(name) {
         name = name.replace(/[\[]/, "\\\[").replace(/[\]]/, "\\\]");
@@ -57,13 +61,16 @@ window.addEventListener('DOMContentLoaded',function(){
         results = regex.exec(location.search);
         return results == null ? "" : decodeURIComponent(results[1].replace(/\+/g, " "));
     }
+
     var r=getParameterByName('r')
     if(r) getElementById('result').value=r
 },false)
 
-
         
         
     </script>
+<a href="pic2shop://scan?callback=http%3a%2f%2fhogehoge%2ecom%2fhogetest%2ephp%3fcode%3dEAN">
+スキャン
+</a>
 <body>
 <html>
