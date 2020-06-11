@@ -5,13 +5,14 @@
     <title>音声認識サンプル</title>
 </head>
 <body>
-    <h2>音声認識サンプル</h2>
+    <h2>音声認識 By Barusu</h2>
     <button id="btn">start</button>
     <div id="main" Style="display:flex;">
     <div id="content" Style="Width:400px;padding:15px;"></div>
     <div id="inputArea" Style="Width:400px;padding:15px;"></div>
     </div>
     <div id="inputTextArea" Style="Width:800px;padding:15px;">
+    <button id="btnCopy">copy</button>
     <textarea id="area"></textarea>
     </div>
 
@@ -20,17 +21,26 @@
         speech.lang = 'ja-JP';
 
         const btn = document.getElementById('btn');
-        const content = document.getElementById('content');
-        //const contentInputArea = document.getElementById('inputArea');
-        const contentArea = document.getElementById('area');
-        //const contentInput = document.getElementById('inputContent');
+        const btnCopy = document.getElementById('btnCopy');
 
+        const content = document.getElementById('content');
+        const contentInputArea = document.getElementById('inputArea');
+        const contentArea = document.getElementById('area');
+        const contentInput = document.getElementById('inputContent');
+
+        var len=document.getElementById('content');
+        
+        btn.copyTextToArea('click',function(){
+        var len = document.getElementById('inputArea');
+        var Text = "";
+        for (i = 0 ; len<i;i++){
+        Text += len.children[i].value + '\n';
+        }
+        })
         btn.addEventListener('click' , function() {
-        // 音声認識をスタート
         speech.start();
         });
 
-        //---------------追記---------------//
         //音声自動文字起こし機能
         speech.onresult = function(e) {
              speech.stop();
@@ -40,10 +50,7 @@
                  console.log(autotext);
                  content.innerHTML += '<div>'+ autotext +'</div>';
                  contentArea.textContent += '\n'+ autotext ;
-                 
-                 
-                 
-                 //contentInput.value += autotext;
+                 contentInput.value += '<input Type="text" Style="Width:400px;padding:15px;" value="' + autotext + '">';
               }
          }
 
