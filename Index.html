@@ -9,7 +9,7 @@
     <button id="btn">start</button>
     <div id="main" Style="display:flex;">
     <div id="content"></div>
-    <div>
+    <div id="inputArea">
         <input Type="text" id="inputContent">
         </div>
     </div>
@@ -20,7 +20,8 @@
 
         const btn = document.getElementById('btn');
         const content = document.getElementById('content');
-        const contentInput = document.getElementById('inputContent');
+        const contentinputArea = document.getElementById('inputArea');
+        //const contentInput = document.getElementById('inputContent');
 
         btn.addEventListener('click' , function() {
         // 音声認識をスタート
@@ -36,7 +37,8 @@
                  console.log(e);
                  console.log(autotext);
                  content.innerHTML += '<div>'+ autotext +'</div>';
-                 contentInput.value += '\n' + autotext;
+                 content.innerHTML += '<input Type="text">'+ autotext;
+                 //contentInput.value += autotext;
               }
          }
 
