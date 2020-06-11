@@ -9,9 +9,7 @@
     <button id="btn">start</button>
     <div id="main" Style="display:flex;">
     <div id="content"></div>
-    <div id="inputArea">
-        <input Type="text" id="inputContent">
-        </div>
+    <div id="inputArea"></div>
     </div>
 
     <script>
@@ -37,7 +35,7 @@
                  console.log(e);
                  console.log(autotext);
                  content.innerHTML += '<div>'+ autotext +'</div>';
-                 contentinputArea.innerHTML += '<input Type="text" Value="'+ autotext +'">' ;
+                 contentinputArea.innerHTML += '<Div><input Type="text" Value="'+ autotext +'"></Div>' ;
                  //contentInput.value += autotext;
               }
          }
