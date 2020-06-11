@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="ja">
 <head>
@@ -19,24 +20,14 @@
     <script>
         const speech = new webkitSpeechRecognition();
         speech.lang = 'ja-JP';
-
         const btn = document.getElementById('btn');
         const btnCopy = document.getElementById('btnCopy');
-
         const content = document.getElementById('content');
         const contentInputArea = document.getElementById('inputArea');
         const contentArea = document.getElementById('area');
         const contentInput = document.getElementById('inputContent');
-
         var len=document.getElementById('content');
-        
-        btn.copyTextToArea('click',function(){
-        var len = document.getElementById('inputArea');
-        var Text = "";
-        for (i = 0 ; len<i;i++){
-        Text += len.children[i].value + '\n';
-        }
-        })
+
         btn.addEventListener('click' , function() {
         speech.start();
         });
@@ -57,6 +48,15 @@
          speech.onend = () => {
             speech.start()
          };
+
+        btn.copyTextToArea('click',function(){
+
+        var len = document.getElementById('inputArea');
+        var Text = "";
+        for (i = 0 ; len<i i++{
+                        Text += len.children[i].value + '\n' ;
+        }
+        });
         //--------------------------------//
 
     </script>
